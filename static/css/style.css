@@ -597,6 +597,77 @@ a { color: inherit; text-decoration: none; }
     margin-right: 0.6rem;
 }
 
+/* Diwali theme (privacy page) --------------------------------------- */
+
+.diwali {
+    --diwali-night: #2a0a3d;
+    --diwali-plum: #4a1259;
+    --diwali-saffron: #ff8f00;
+    --diwali-marigold: #ffc107;
+    --diwali-magenta: #c2185b;
+    --diwali-maroon: #8b1e3f;
+    --diwali-cream: #fff8ec;
+
+    background-color: var(--diwali-night);
+    background-image:
+        radial-gradient(circle, rgba(255, 193, 7, 0.75) 1.5px, transparent 2.5px),
+        radial-gradient(circle, rgba(255, 143, 0, 0.5) 1px, transparent 2px),
+        radial-gradient(ellipse at 50% 0%, rgba(255, 143, 0, 0.35), transparent 60%),
+        linear-gradient(180deg, var(--diwali-night), var(--diwali-plum));
+    background-size: 80px 80px, 50px 50px, 100% 100%, 100% 100%;
+    background-position: 0 0, 25px 18px, 0 0, 0 0;
+}
+
+.diwali .diwali-ornaments {
+    font-size: 1.75rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.diwali .legal-title {
+    color: var(--diwali-marigold);
+    text-shadow: 0 2px 0 var(--diwali-maroon), 0 0 22px rgba(255, 143, 0, 0.7);
+}
+
+.diwali .legal-updated { color: #ffd9a0; }
+
+.diwali .legal-card {
+    background: var(--diwali-cream);
+    border: 3px solid var(--diwali-marigold);
+    border-top: 12px solid transparent;
+    background-image:
+        repeating-linear-gradient(90deg,
+            var(--diwali-saffron) 0 18px,
+            var(--diwali-magenta) 18px 36px,
+            var(--diwali-marigold) 36px 54px);
+    background-size: 100% 12px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-origin: border-box;
+    box-shadow: 0 0 0 6px rgba(255, 193, 7, 0.15), 0 12px 34px rgba(0, 0, 0, 0.45);
+}
+
+.diwali .legal-card h2 { color: var(--diwali-maroon); }
+.diwali .legal-card h2:nth-of-type(even) { color: var(--diwali-magenta); }
+
+.diwali .legal-card h2::before {
+    content: "✦ ";
+    color: var(--diwali-saffron);
+}
+
+.diwali .legal-card ul { list-style: none; margin-left: 0.25rem; }
+
+.diwali .legal-card li::before {
+    content: "🪔";
+    margin-right: 0.6rem;
+}
+
+.diwali .legal-card a {
+    color: var(--diwali-magenta);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
 /* ------------------------------------------------------------------ */
 /* Footer                                                              */
 /* ------------------------------------------------------------------ */
