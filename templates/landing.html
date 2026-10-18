@@ -27,8 +27,14 @@
 
         <div class="lp-actions">
             <a href="{{ url_for('register') }}" class="lp-btn">Create free account</a>
-            <button type="button" class="lp-btn" id="how-it-works-btn"
-                    aria-haspopup="dialog" aria-controls="video-modal">See how it works</button>
+            <button type="button" class="lp-btn lp-btn-video" id="how-it-works-btn"
+                    aria-haspopup="dialog" aria-controls="video-modal">
+                <svg class="lp-play-icon" viewBox="0 0 28 20" aria-hidden="true">
+                    <rect width="28" height="20" rx="5" fill="#ffffff"/>
+                    <path d="M11 5.5v9l8-4.5z" fill="#ff0000"/>
+                </svg>
+                See how it works
+            </button>
         </div>
 
         <div class="lp-preview">

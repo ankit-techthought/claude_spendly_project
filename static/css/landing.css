@@ -94,6 +94,32 @@ button.lp-btn {
     cursor: pointer;
 }
 
+/* "See how it works" — YouTube-style red play button */
+
+.lp-btn-video {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: #ff0000;
+    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.28);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.lp-btn-video:hover {
+    background: #cc0000;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(255, 0, 0, 0.35);
+}
+
+.lp-play-icon {
+    width: 1.75rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.lp-btn-video:hover .lp-play-icon { transform: scale(1.1); }
+
 /* Video modal */
 
 .lp-modal {
@@ -258,6 +284,7 @@ button.lp-btn {
     .lp-hero { padding: 3rem 1rem; }
     .lp-subtitle { font-size: 1.1rem; }
     .lp-btn { width: 100%; text-align: center; }
+    .lp-btn-video { justify-content: center; }
     .lp-stats { grid-template-columns: 1fr; }
     .lp-bar-row { grid-template-columns: 70px 1fr; }
     .lp-bar-label { font-size: 1rem; }
