@@ -478,6 +478,126 @@ a { color: inherit; text-decoration: none; }
 .auth-switch a:hover { text-decoration: underline; }
 
 /* ------------------------------------------------------------------ */
+/* Legal pages                                                         */
+/* ------------------------------------------------------------------ */
+
+.legal-section {
+    padding: 3rem 2rem;
+}
+
+.legal-container {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.legal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.legal-title {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.legal-updated {
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+}
+
+.legal-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+}
+
+.legal-card h2 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 2rem 0 0.75rem;
+}
+
+.legal-card h2:first-child { margin-top: 0; }
+
+.legal-card p { margin-bottom: 1rem; }
+
+.legal-card ul {
+    margin: 0 0 1rem 1.25rem;
+}
+
+.legal-card li { margin-bottom: 0.35rem; }
+
+/* Christmas theme (terms page) -------------------------------------- */
+
+.xmas {
+    --xmas-red: #c62828;
+    --xmas-red-dark: #8e1b1b;
+    --xmas-green: #1b5e20;
+    --xmas-green-dark: #0d3b14;
+    --xmas-gold: #f2c14e;
+    --xmas-snow: #fffdf7;
+
+    background-color: var(--xmas-green-dark);
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.55) 1.5px, transparent 2px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.35) 1px, transparent 1.5px),
+        linear-gradient(180deg, var(--xmas-green-dark), var(--xmas-green));
+    background-size: 90px 90px, 45px 45px, 100% 100%;
+    background-position: 0 0, 22px 30px, 0 0;
+}
+
+.xmas .xmas-ornaments {
+    font-size: 1.75rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.xmas .legal-title {
+    color: var(--xmas-snow);
+    text-shadow: 0 2px 0 var(--xmas-red-dark), 0 0 18px rgba(242, 193, 78, 0.45);
+}
+
+.xmas .legal-updated { color: var(--xmas-gold); }
+
+.xmas .legal-card {
+    background: var(--xmas-snow);
+    border: 3px solid var(--xmas-gold);
+    border-top: 12px solid transparent;
+    background-image:
+        repeating-linear-gradient(-45deg,
+            var(--xmas-red) 0 14px,
+            var(--xmas-snow) 14px 28px);
+    background-size: 100% 12px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-origin: border-box;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.xmas .legal-card h2 { color: var(--xmas-red); }
+.xmas .legal-card h2:nth-of-type(even) { color: var(--xmas-green); }
+
+.xmas .legal-card h2::before {
+    content: "★ ";
+    color: var(--xmas-gold);
+}
+
+.xmas .legal-card ul { list-style: none; margin-left: 0.25rem; }
+
+.xmas .legal-card li::before {
+    content: "❄";
+    color: var(--xmas-green);
+    margin-right: 0.6rem;
+}
+
+/* ------------------------------------------------------------------ */
 /* Footer                                                              */
 /* ------------------------------------------------------------------ */
 
