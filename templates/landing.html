@@ -2,64 +2,99 @@
 
 {% block title %}Spendly — Track Every Rupee{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+
 {% block content %}
 
-<section class="hero">
-    <div class="hero-inner">
-        <div class="hero-badge">Personal Finance Tracker</div>
-        <h1 class="hero-title">
-            Know where your<br>
-            <em>money goes</em>
-        </h1>
-        <p class="hero-subtitle">
-            Log expenses, understand your spending patterns,
-            and take control of your financial life —
-            one transaction at a time.
-        </p>
-        <div class="hero-actions">
-            <a href="{{ url_for('register') }}" class="btn-primary">Start tracking free</a>
-            <a href="{{ url_for('login') }}" class="btn-ghost">Sign in</a>
+<section class="lp-hero">
+    <div class="lp-hero-inner">
+        <div class="lp-badge">
+            <span class="lp-badge-dot"></span>
+            Free to use · No credit card needed
         </div>
-    </div>
-    <div class="hero-visual">
-        <div class="mock-card">
-            <div class="mock-card-header">
-                <span class="mock-label">March 2026</span>
-                <span class="mock-total">₹12,450</span>
+
+        <h1 class="lp-title">
+            Track every rupee.<br>
+            <span class="lp-title-accent">Know where it goes.</span>
+        </h1>
+
+        <p class="lp-subtitle">
+            Spendly helps you log expenses, spot patterns, and stay
+            on budget — without the spreadsheet headache.
+        </p>
+
+        <div class="lp-actions">
+            <a href="{{ url_for('register') }}" class="lp-btn">Create free account</a>
+            <button type="button" class="lp-btn" id="how-it-works-btn"
+                    aria-haspopup="dialog" aria-controls="video-modal">See how it works</button>
+        </div>
+
+        <div class="lp-preview">
+            <div class="lp-preview-dots" aria-hidden="true">
+                <span class="lp-dot lp-dot-red"></span>
+                <span class="lp-dot lp-dot-yellow"></span>
+                <span class="lp-dot lp-dot-green"></span>
             </div>
-            <div class="mock-bars">
-                <div class="mock-bar-row">
-                    <span class="mock-cat">Bills</span>
-                    <div class="mock-bar-track">
-                        <div class="mock-bar" style="width: 72%"></div>
-                    </div>
-                    <span class="mock-amt">₹4,500</span>
+
+            <div class="lp-stats">
+                <div class="lp-stat">
+                    <span class="lp-stat-label">This month</span>
+                    <span class="lp-stat-value">₹18,240</span>
+                    <span class="lp-stat-note lp-note-up">+12% vs last</span>
                 </div>
-                <div class="mock-bar-row">
-                    <span class="mock-cat">Food</span>
-                    <div class="mock-bar-track">
-                        <div class="mock-bar mock-bar-2" style="width: 52%"></div>
-                    </div>
-                    <span class="mock-amt">₹3,200</span>
+                <div class="lp-stat">
+                    <span class="lp-stat-label">Budget left</span>
+                    <span class="lp-stat-value">₹6,760</span>
+                    <span class="lp-stat-note lp-note-good">43% remaining</span>
                 </div>
-                <div class="mock-bar-row">
-                    <span class="mock-cat">Health</span>
-                    <div class="mock-bar-track">
-                        <div class="mock-bar mock-bar-3" style="width: 33%"></div>
-                    </div>
-                    <span class="mock-amt">₹2,050</span>
+                <div class="lp-stat">
+                    <span class="lp-stat-label">Transactions</span>
+                    <span class="lp-stat-value">34</span>
+                    <span class="lp-stat-note">this month</span>
                 </div>
-                <div class="mock-bar-row">
-                    <span class="mock-cat">Transport</span>
-                    <div class="mock-bar-track">
-                        <div class="mock-bar mock-bar-4" style="width: 28%"></div>
+            </div>
+
+            <div class="lp-bars">
+                <div class="lp-bar-row">
+                    <span class="lp-bar-label">Food</span>
+                    <div class="lp-bar-track">
+                        <div class="lp-bar lp-bar-food" style="width: 72%"></div>
                     </div>
-                    <span class="mock-amt">₹1,800</span>
+                </div>
+                <div class="lp-bar-row">
+                    <span class="lp-bar-label">Travel</span>
+                    <div class="lp-bar-track">
+                        <div class="lp-bar lp-bar-travel" style="width: 48%"></div>
+                    </div>
+                </div>
+                <div class="lp-bar-row">
+                    <span class="lp-bar-label">Bills</span>
+                    <div class="lp-bar-track">
+                        <div class="lp-bar lp-bar-bills" style="width: 38%"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<div class="lp-modal" id="video-modal" role="dialog" aria-modal="true"
+     aria-label="How Spendly works" hidden>
+    <div class="lp-modal-box">
+        <button type="button" class="lp-modal-close" id="video-modal-close"
+                aria-label="Close video">&times;</button>
+        <div class="lp-modal-video">
+            {# Placeholder video — replace the ID in data-src with the real one #}
+            <iframe id="video-modal-iframe"
+                    data-src="https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1&rel=0"
+                    title="How Spendly works"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
 
 <section class="features">
     <div class="features-inner">
@@ -89,4 +124,43 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    const openBtn = document.getElementById("how-it-works-btn");
+    const modal = document.getElementById("video-modal");
+    const closeBtn = document.getElementById("video-modal-close");
+    const iframe = document.getElementById("video-modal-iframe");
+
+    function openModal() {
+        // Load the video only when opened, so it starts playing here
+        iframe.src = iframe.dataset.src;
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        closeBtn.focus();
+    }
+
+    function closeModal() {
+        // Swapping in a blank page unloads the player, which stops playback completely
+        iframe.src = "about:blank";
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        openBtn.focus();
+    }
+
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+
+    // Clicking the dark overlay (outside the box) closes the modal
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+    });
+})();
+</script>
 {% endblock %}
